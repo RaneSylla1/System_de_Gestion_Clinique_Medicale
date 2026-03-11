@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="620" prefWidth="860" spacing="20" style="-fx-background-color: #1a1a2e;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="sn.clinique.sgcm.controller.MedecinController">
+
+    <padding><Insets bottom="24" left="24" right="24" top="24" /></padding>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <Label prefHeight="30.0" prefWidth="296.0" style="-fx-text-fill: white; -fx-font-size: 20px;                       -fx-font-weight: bold;" text="👨‍⚕️  Gestion des Médecins" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#ouvrirFormulaire" style="-fx-background-color: #e94560;                        -fx-text-fill: white; -fx-font-weight: bold;                        -fx-background-radius: 8; -fx-padding: 8 16 8 16;                        -fx-cursor: hand; -fx-font-size: 13px;" text="＋  Nouveau Médecin" />
+    </HBox>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <TextField fx:id="searchField" prefHeight="38" promptText="🔍  Rechercher par nom ou spécialité..." style="-fx-background-color: #16213e;                           -fx-text-fill: white;                           -fx-prompt-text-fill: #606080;                           -fx-background-radius: 8;                           -fx-border-color: #0f3460;                           -fx-border-radius: 8;                           -fx-border-width: 1;                           -fx-padding: 8 14 8 14;                           -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
+        <Button onAction="#rechercher" style="-fx-background-color: #0f3460;                        -fx-text-fill: white; -fx-background-radius: 8;                        -fx-padding: 8 16 8 16; -fx-cursor: hand;" text="Rechercher" />
+        <Button onAction="#chargerMedecins" style="-fx-background-color: #16213e;                        -fx-text-fill: #a0a0b0; -fx-background-radius: 8;                        -fx-border-color: #0f3460; -fx-border-width: 1;                        -fx-padding: 8 16 8 16; -fx-cursor: hand;" text="Actualiser" />
+    </HBox>
+
+
+    <TableView fx:id="medecinTable" style="-fx-background-color: #16213e;                       -fx-border-color: #0f3460;                       -fx-border-radius: 8;                       -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colMatricule" prefWidth="110" text="Matricule" />
+            <TableColumn fx:id="colNom" prefWidth="130" text="Nom" />
+            <TableColumn fx:id="colPrenom" prefWidth="130" text="Prénom" />
+            <TableColumn fx:id="colSpecialite" prefWidth="160" text="Spécialité" />
+            <TableColumn fx:id="colTel" prefWidth="120" text="Téléphone" />
+            <TableColumn fx:id="colUsername" prefWidth="110" text="Username" />
+            <TableColumn fx:id="colActions" prefWidth="120" text="Actions" />
+        </columns>
+        <placeholder>
+            <Label style="-fx-text-fill: #a0a0b0;" text="Aucun médecin trouvé" />
+        </placeholder>
+    </TableView>
+
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="totalLabel" style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Total : 0 médecin(s)" />
+    </HBox>
+
+</VBox>

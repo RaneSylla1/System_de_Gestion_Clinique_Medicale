@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sn.clinique.sgcm.controller.PatientController"
+      style="-fx-background-color: #1a1a2e;"
+      spacing="20" prefWidth="860" prefHeight="620">
+
+    <padding><Insets top="24" left="24" right="24" bottom="24"/></padding>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <Label text="👥 Gestion des Patients"
+               style="-fx-text-fill: white; -fx-font-size: 20px;
+                      -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="＋  Nouveau Patient"
+                onAction="#ouvrirFormulaire"
+                style="-fx-background-color: #e94560;
+                       -fx-text-fill: white; -fx-font-weight: bold;
+                       -fx-background-radius: 8; -fx-padding: 8 16 8 16;
+                       -fx-cursor: hand; -fx-font-size: 13px;"/>
+    </HBox>
+
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField"
+                   promptText="🔍  Rechercher par nom ou prénom..."
+                   prefHeight="38" HBox.hgrow="ALWAYS"
+                   style="-fx-background-color: #16213e;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #606080;
+                          -fx-background-radius: 8;
+                          -fx-border-color: #0f3460;
+                          -fx-border-radius: 8;
+                          -fx-border-width: 1;
+                          -fx-padding: 8 14 8 14;
+                          -fx-font-size: 13px;"/>
+        <Button text="Rechercher" onAction="#rechercher"
+                style="-fx-background-color: #0f3460;
+                       -fx-text-fill: white; -fx-background-radius: 8;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+        <Button text="Actualiser" onAction="#chargerPatients"
+                style="-fx-background-color: #16213e;
+                       -fx-text-fill: #a0a0b0; -fx-background-radius: 8;
+                       -fx-border-color: #0f3460; -fx-border-width: 1;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+    </HBox>
+
+
+    <TableView fx:id="patientTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: #16213e;
+                      -fx-border-color: #0f3460;
+                      -fx-border-radius: 8;
+                      -fx-background-radius: 8;">
+        <columns>
+            <TableColumn fx:id="colId"      text="ID"        prefWidth="50"/>
+            <TableColumn fx:id="colNom"     text="Nom"       prefWidth="120"/>
+            <TableColumn fx:id="colPrenom"  text="Prénom"    prefWidth="120"/>
+            <TableColumn fx:id="colSexe"    text="Sexe"      prefWidth="80"/>
+            <TableColumn fx:id="colTel"     text="Téléphone" prefWidth="120"/>
+            <TableColumn fx:id="colSanguin" text="Groupe"    prefWidth="80"/>
+            <TableColumn fx:id="colActions" text="Actions"   prefWidth="160"/>
+        </columns>
+        <placeholder>
+            <Label text="Aucun patient trouvé"
+                   style="-fx-text-fill: #a0a0b0;"/>
+        </placeholder>
+    </TableView>
+
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="totalLabel" text="Total : 0 patient(s)"
+               style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+    </HBox>
+
+</VBox>

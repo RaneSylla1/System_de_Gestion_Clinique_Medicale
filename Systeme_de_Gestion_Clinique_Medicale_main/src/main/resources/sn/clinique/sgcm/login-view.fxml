@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="sn.clinique.sgcm.controller.LoginController"
+           styleClass="login-container"
+           stylesheets="@styles/style.css"
+           prefWidth="900" prefHeight="600">
+
+
+    <HBox>
+        <VBox prefWidth="450" prefHeight="600"
+              style="-fx-background-color: #0f3460;">
+            <padding><Insets top="60" left="50" right="50"/></padding>
+
+            <Label text="🏥" style="-fx-font-size: 60px;"/>
+            <Label text="Clinique Médicale"
+                   style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold; -fx-padding: 20 0 8 0;"/>
+            <Label text="Système de Gestion Intégré"
+                   style="-fx-text-fill: #a0c4ff; -fx-font-size: 14px;"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="© 2025 SGCM — Tous droits réservés"
+                   style="-fx-text-fill: #406080; -fx-font-size: 11px; -fx-padding: 0 0 30 0;"/>
+        </VBox>
+
+        <VBox prefWidth="450" prefHeight="600"
+              styleClass="login-container"
+              alignment="CENTER">
+            <padding><Insets left="50" right="50"/></padding>
+
+
+            <VBox styleClass="login-card" spacing="18" maxWidth="340">
+
+                <Label text="Connexion" styleClass="login-title"/>
+                <Label text="Bienvenue, veuillez vous identifier"
+                       styleClass="login-subtitle"/>
+
+                <Region prefHeight="8"/>
+
+
+                <VBox spacing="6">
+                    <Label text="NOM D'UTILISATEUR" styleClass="login-label"/>
+                    <TextField fx:id="usernameField"
+                               promptText="Entrez votre username"
+                               styleClass="login-field"
+                               prefHeight="42"/>
+                </VBox>
+
+
+                <VBox spacing="6">
+                    <Label text="MOT DE PASSE" styleClass="login-label"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Entrez votre mot de passe"
+                                   styleClass="login-field"
+                                   prefHeight="42"/>
+                </VBox>
+
+
+                <Label fx:id="errorLabel" styleClass="error-label"
+                       text="" wrapText="true"/>
+
+                <Region prefHeight="4"/>
+
+
+                <Button fx:id="loginBtn"
+                        text="SE CONNECTER"
+                        styleClass="btn-login"
+                        maxWidth="Infinity"
+                        prefHeight="44"
+                        onAction="#handleLogin"/>
+
+            </VBox>
+        </VBox>
+    </HBox>
+
+</StackPane>

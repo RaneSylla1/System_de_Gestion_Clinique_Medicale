@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sn.clinique.sgcm.controller.FactureController"
+      style="-fx-background-color: #1a1a2e;"
+      spacing="20" prefWidth="860" prefHeight="620">
+
+    <padding><Insets top="24" left="24" right="24" bottom="24"/></padding>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <Label text="🧾 Gestion des Factures"
+               style="-fx-text-fill: white; -fx-font-size: 20px;
+                      -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <HBox spacing="12">
+            <VBox alignment="CENTER"
+                  style="-fx-background-color: #16213e;
+                         -fx-background-radius: 8; -fx-padding: 8 16 8 16;">
+                <Label fx:id="totalPayeLabel" text="0 FCFA"
+                       style="-fx-text-fill: #4caf50; -fx-font-weight: bold;
+                              -fx-font-size: 13px;"/>
+                <Label text="Total encaissé"
+                       style="-fx-text-fill: #a0a0b0; -fx-font-size: 10px;"/>
+            </VBox>
+            <VBox alignment="CENTER"
+                  style="-fx-background-color: #16213e;
+                         -fx-background-radius: 8; -fx-padding: 8 16 8 16;">
+                <Label fx:id="totalImpayeLabel" text="0 FCFA"
+                       style="-fx-text-fill: #e94560; -fx-font-weight: bold;
+                              -fx-font-size: 13px;"/>
+                <Label text="Total impayé"
+                       style="-fx-text-fill: #a0a0b0; -fx-font-size: 10px;"/>
+            </VBox>
+        </HBox>
+    </HBox>
+
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField"
+                   promptText="🔍  Rechercher par numéro ou patient..."
+                   prefHeight="38" prefWidth="300"
+                   style="-fx-background-color: #16213e;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #606080;
+                          -fx-background-radius: 8;
+                          -fx-border-color: #0f3460;
+                          -fx-border-radius: 8; -fx-border-width: 1;
+                          -fx-padding: 8 14 8 14; -fx-font-size: 13px;"/>
+
+        <ComboBox fx:id="filtreStatut"
+                  promptText="Tous les statuts"
+                  style="-fx-background-color: #16213e;
+                         -fx-border-color: #0f3460;
+                         -fx-border-radius: 8; -fx-border-width: 1;
+                         -fx-background-radius: 8;"/>
+
+        <Button text="Filtrer" onAction="#filtrer"
+                style="-fx-background-color: #0f3460;
+                       -fx-text-fill: white; -fx-background-radius: 8;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+        <Button text="Actualiser" onAction="#chargerFactures"
+                style="-fx-background-color: #16213e;
+                       -fx-text-fill: #a0a0b0; -fx-background-radius: 8;
+                       -fx-border-color: #0f3460; -fx-border-width: 1;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+    </HBox>
+
+
+    <TableView fx:id="factureTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: #16213e;
+                      -fx-border-color: #0f3460;
+                      -fx-border-radius: 8; -fx-background-radius: 8;">
+        <columns>
+            <TableColumn fx:id="colNumero"  text="N° Facture"   prefWidth="130"/>
+            <TableColumn fx:id="colDate"    text="Date"         prefWidth="100"/>
+            <TableColumn fx:id="colPatient" text="Patient"      prefWidth="150"/>
+            <TableColumn fx:id="colMontant" text="Montant"      prefWidth="120"/>
+            <TableColumn fx:id="colMode"    text="Paiement"     prefWidth="110"/>
+            <TableColumn fx:id="colStatut"  text="Statut"       prefWidth="100"/>
+            <TableColumn fx:id="colActions" text="Actions"      prefWidth="160"/>
+        </columns>
+        <placeholder>
+            <Label text="Aucune facture trouvée"
+                   style="-fx-text-fill: #a0a0b0;"/>
+        </placeholder>
+    </TableView>
+
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="totalLabel" text="Total : 0 facture(s)"
+               style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+    </HBox>
+
+</VBox>

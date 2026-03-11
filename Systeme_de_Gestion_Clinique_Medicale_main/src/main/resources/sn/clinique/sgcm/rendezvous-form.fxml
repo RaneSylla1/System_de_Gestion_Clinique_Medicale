@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sn.clinique.sgcm.controller.RendezVousFormController"
+      style="-fx-background-color: #1a1a2e;"
+      spacing="16" prefWidth="480">
+
+    <padding><Insets top="24" left="28" right="28" bottom="24"/></padding>
+
+    <Label fx:id="formTitle" text="Nouveau Rendez-vous"
+           style="-fx-text-fill: white; -fx-font-size: 18px;
+                  -fx-font-weight: bold;"/>
+
+    <Separator style="-fx-background-color: #0f3460;"/>
+
+
+    <VBox spacing="6">
+        <Label text="Patient *"
+               style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+        <ComboBox fx:id="patientField" maxWidth="Infinity"
+                  promptText="Sélectionner un patient"
+                  style="-fx-background-color: #16213e;
+                         -fx-border-color: #0f3460;
+                         -fx-border-radius: 8; -fx-border-width: 1;
+                         -fx-background-radius: 8;"/>
+    </VBox>
+
+
+    <VBox spacing="6">
+        <Label text="Médecin *"
+               style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+        <ComboBox fx:id="medecinField" maxWidth="Infinity"
+                  promptText="Sélectionner un médecin"
+                  style="-fx-background-color: #16213e;
+                         -fx-border-color: #0f3460;
+                         -fx-border-radius: 8; -fx-border-width: 1;
+                         -fx-background-radius: 8;"/>
+    </VBox>
+
+
+    <HBox spacing="12">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Date *"
+                   style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+            <DatePicker fx:id="dateField" maxWidth="Infinity"
+                        style="-fx-background-color: #16213e;
+                               -fx-border-color: #0f3460;
+                               -fx-border-radius: 8; -fx-border-width: 1;
+                               -fx-background-radius: 8;"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Heure * (HH:mm)"
+                   style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+            <TextField fx:id="heureField" promptText="ex: 09:30"
+                       style="-fx-background-color: #16213e;
+                              -fx-text-fill: white;
+                              -fx-prompt-text-fill: #606080;
+                              -fx-background-radius: 8;
+                              -fx-border-color: #0f3460;
+                              -fx-border-radius: 8; -fx-border-width: 1;
+                              -fx-padding: 8 12 8 12;"/>
+        </VBox>
+    </HBox>
+
+
+    <VBox spacing="6">
+        <Label text="Motif"
+               style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+        <TextArea fx:id="motifField"
+                  promptText="Motif de la consultation..."
+                  prefRowCount="3" wrapText="true"
+                  style="-fx-background-color: #16213e;
+                         -fx-text-fill: white;
+                         -fx-prompt-text-fill: #606080;
+                         -fx-background-radius: 8;
+                         -fx-border-color: #0f3460;
+                         -fx-border-radius: 8; -fx-border-width: 1;
+                         -fx-padding: 8 12 8 12;"/>
+    </VBox>
+
+
+    <Label fx:id="errorLabel" text=""
+           style="-fx-text-fill: #e94560; -fx-font-size: 12px;"
+           wrapText="true"/>
+
+    <Separator style="-fx-background-color: #0f3460;"/>
+
+
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <Button text="Annuler" onAction="#annuler"
+                style="-fx-background-color: transparent;
+                       -fx-text-fill: #a0a0b0;
+                       -fx-border-color: #0f3460; -fx-border-width: 1;
+                       -fx-border-radius: 8; -fx-background-radius: 8;
+                       -fx-padding: 8 20 8 20; -fx-cursor: hand;"/>
+        <Button fx:id="saveBtn" text="Enregistrer" onAction="#sauvegarder"
+                style="-fx-background-color: #e94560;
+                       -fx-text-fill: white; -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 8 20 8 20; -fx-cursor: hand;"/>
+    </HBox>
+
+</VBox>

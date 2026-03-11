@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sn.clinique.sgcm.controller.DashboardController"
+            stylesheets="@styles/style.css"
+            prefWidth="1100" prefHeight="680">
+
+
+    <left>
+        <VBox styleClass="sidebar" prefWidth="220" spacing="4">
+            <padding><Insets top="24" left="12" right="12" bottom="24"/></padding>
+
+
+            <VBox alignment="CENTER" style="-fx-padding: 0 0 20 0;">
+                <Label text="🏥" style="-fx-font-size: 36px;"/>
+                <Label text="SGCM" styleClass="sidebar-title"/>
+                <Label text="Gestion Clinique" styleClass="sidebar-subtitle"/>
+            </VBox>
+
+            <Separator style="-fx-background-color: #0f3460;"/>
+            <Region prefHeight="8"/>
+
+
+            <Label text="MENU PRINCIPAL" styleClass="nav-separator"/>
+
+            <Button fx:id="btnDashboard" text="📊  Dashboard"
+                    styleClass="nav-btn, nav-btn-active"
+                    onAction="#showDashboard"/>
+            <Button fx:id="btnPatients" text="👥  Patients"
+                    styleClass="nav-btn"
+                    onAction="#showPatients"/>
+            <Button fx:id="btnRendezVous" text="📅  Rendez-vous"
+                    styleClass="nav-btn"
+                    onAction="#showRendezVous"/>
+            <Button fx:id="btnConsultations" text="🩺  Consultations"
+                    styleClass="nav-btn"
+                    onAction="#showConsultations"/>
+            <Button fx:id="btnFactures" text="🧾  Factures"
+                    styleClass="nav-btn"
+                    onAction="#showFactures"/>
+
+            <Label text="ADMINISTRATION" styleClass="nav-separator"/>
+            <Button fx:id="btnMedecins" text="👨‍⚕️  Médecins"
+                    styleClass="nav-btn"
+                    onAction="#showMedecins"/>
+            <Button fx:id="btnUtilisateurs" text="🔐  Utilisateurs"
+                    styleClass="nav-btn"
+                    onAction="#showUtilisateurs"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <Button text="⬅  Déconnexion"
+                    styleClass="btn-logout"
+                    maxWidth="Infinity"
+                    onAction="#handleLogout"/>
+        </VBox>
+    </left>
+
+
+    <center>
+        <VBox>
+
+            <HBox styleClass="topbar" prefHeight="60"
+                  alignment="CENTER_LEFT" spacing="16">
+                <Label fx:id="topbarTitle" text="Dashboard"
+                       styleClass="topbar-title" HBox.hgrow="ALWAYS"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="user-badge" spacing="10" alignment="CENTER">
+                    <Label fx:id="userNameLabel" text="Admin"
+                           styleClass="user-badge-text"/>
+                    <HBox styleClass="role-badge">
+                        <Label fx:id="userRoleLabel" text="ADMIN"
+                               styleClass="role-badge-text"/>
+                    </HBox>
+                </HBox>
+            </HBox>
+
+
+            <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true"
+                        style="-fx-background-color: #1a1a2e;
+                               -fx-background: #1a1a2e;">
+                <VBox fx:id="contentArea" styleClass="content-area" spacing="24">
+
+                    <Label text="Tableau de bord" styleClass="section-title"/>
+
+
+                    <HBox spacing="16">
+                        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <Label text="👥" styleClass="stat-icon"/>
+                            <Label fx:id="totalPatients" text="0"
+                                   styleClass="stat-number"/>
+                            <Label text="Patients" styleClass="stat-label"/>
+                        </VBox>
+                        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <Label text="📅" styleClass="stat-icon"/>
+                            <Label fx:id="rdvDuJour" text="0"
+                                   styleClass="stat-number"/>
+                            <Label text="RDV Aujourd'hui" styleClass="stat-label"/>
+                        </VBox>
+                        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <Label text="🩺" styleClass="stat-icon"/>
+                            <Label fx:id="totalConsultations" text="0"
+                                   styleClass="stat-number"/>
+                            <Label text="Consultations" styleClass="stat-label"/>
+                        </VBox>
+                        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"
+                              spacing="8" alignment="CENTER">
+                            <Label text="🧾" styleClass="stat-icon"/>
+                            <Label fx:id="facturesNonPayees" text="0"
+                                   styleClass="stat-number"
+                                   style="-fx-text-fill: #e94560;"/>
+                            <Label text="Factures impayées" styleClass="stat-label"/>
+                        </VBox>
+                    </HBox>
+
+
+                    <VBox spacing="12">
+                        <HBox alignment="CENTER_LEFT" spacing="16">
+                            <Label text="Rendez-vous du jour"
+                                   styleClass="section-title"
+                                   style="-fx-font-size: 16px;"/>
+                        </HBox>
+                        <TableView fx:id="rdvTable" prefHeight="280"
+                                   styleClass="table-view">
+                            <columns>
+                                <TableColumn fx:id="colHeure"
+                                             text="Heure" prefWidth="100"/>
+                                <TableColumn fx:id="colPatientRdv"
+                                             text="Patient" prefWidth="180"/>
+                                <TableColumn fx:id="colMedecinRdv"
+                                             text="Médecin" prefWidth="180"/>
+                                <TableColumn fx:id="colMotif"
+                                             text="Motif" prefWidth="200"/>
+                                <TableColumn fx:id="colStatutRdv"
+                                             text="Statut" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+</BorderPane>

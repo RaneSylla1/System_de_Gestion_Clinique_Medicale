@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefWidth="520" spacing="16" style="-fx-background-color: #1a1a2e;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="sn.clinique.sgcm.controller.ConsultationFormController">
+
+    <padding><Insets bottom="24" left="28" right="28" top="24" /></padding>
+
+    <Label fx:id="formTitle" style="-fx-text-fill: white; -fx-font-size: 18px;                   -fx-font-weight: bold;" text="Nouvelle Consultation" />
+
+    <Separator style="-fx-background-color: #0f3460;" />
+
+    <!-- Rendez-vous -->
+    <VBox spacing="6">
+        <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Rendez-vous *" />
+        <ComboBox fx:id="rendezVousField" maxWidth="Infinity" promptText="Sélectionner un rendez-vous terminé" style="-fx-background-color: #16213e;                          -fx-border-color: #0f3460;                          -fx-border-radius: 8; -fx-border-width: 1;                          -fx-background-radius: 8;" />
+    </VBox>
+
+    <!-- Patient & Médecin (auto-remplis) -->
+    <HBox spacing="12">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Patient" />
+            <TextField fx:id="patientLabel" editable="false" style="-fx-background-color: #0f3460;                               -fx-text-fill: #a0c4ff;                               -fx-background-radius: 8;                               -fx-border-color: transparent;                               -fx-padding: 8 12 8 12;" />
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Médecin" />
+            <TextField fx:id="medecinLabel" editable="false" style="-fx-background-color: #0f3460;                               -fx-text-fill: #a0c4ff;                               -fx-background-radius: 8;                               -fx-border-color: transparent;                               -fx-padding: 8 12 8 12;" />
+        </VBox>
+    </HBox>
+
+    <!-- Diagnostic -->
+    <VBox spacing="6">
+        <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Diagnostic *" />
+        <TextArea fx:id="diagnosticField" prefRowCount="2" promptText="Diagnostic médical..." style="-fx-background-color: #16213e;                          -fx-text-fill: white;                          -fx-prompt-text-fill: #606080;                          -fx-background-radius: 8;                          -fx-border-color: #0f3460;                          -fx-border-radius: 8; -fx-border-width: 1;                          -fx-padding: 8 12 8 12;" wrapText="true" />
+    </VBox>
+
+    <!-- Observations -->
+    <VBox spacing="6">
+        <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Observations" />
+        <TextArea fx:id="observationField" prefRowCount="2" promptText="Observations cliniques..." style="-fx-background-color: #16213e;                          -fx-text-fill: white;                          -fx-prompt-text-fill: #606080;                          -fx-background-radius: 8;                          -fx-border-color: #0f3460;                          -fx-border-radius: 8; -fx-border-width: 1;                          -fx-padding: 8 12 8 12;" wrapText="true" />
+    </VBox>
+
+    <!-- Prescription -->
+    <VBox spacing="6">
+        <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Prescription" />
+        <TextArea fx:id="prescriptionField" prefRowCount="2" promptText="Médicaments, posologie..." style="-fx-background-color: #16213e;                          -fx-text-fill: white;                          -fx-prompt-text-fill: #606080;                          -fx-background-radius: 8;                          -fx-border-color: #0f3460;                          -fx-border-radius: 8; -fx-border-width: 1;                          -fx-padding: 8 12 8 12;" wrapText="true" />
+    </VBox>
+
+    <!-- Prix -->
+    <VBox spacing="6">
+        <Label style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;" text="Prix (FCFA) *" />
+        <TextField fx:id="prixField" promptText="ex: 15000" style="-fx-background-color: #16213e;                           -fx-text-fill: white;                           -fx-prompt-text-fill: #606080;                           -fx-background-radius: 8;                           -fx-border-color: #0f3460;                           -fx-border-radius: 8; -fx-border-width: 1;                           -fx-padding: 8 12 8 12;" />
+    </VBox>
+
+    <!-- Erreur -->
+    <Label fx:id="errorLabel" style="-fx-text-fill: #e94560; -fx-font-size: 12px;" text="" wrapText="true" />
+
+    <Separator style="-fx-background-color: #0f3460;" />
+
+    <!-- Boutons -->
+    <HBox alignment="CENTER_RIGHT" spacing="12">
+        <Button onAction="#annuler" style="-fx-background-color: transparent;                        -fx-text-fill: #a0a0b0;                        -fx-border-color: #0f3460; -fx-border-width: 1;                        -fx-border-radius: 8; -fx-background-radius: 8;                        -fx-padding: 8 20 8 20; -fx-cursor: hand;" text="Annuler" />
+        <Button fx:id="saveBtn" onAction="#sauvegarder" style="-fx-background-color: #e94560;                        -fx-text-fill: white; -fx-font-weight: bold;                        -fx-background-radius: 8;                        -fx-padding: 8 20 8 20; -fx-cursor: hand;" text="Enregistrer" />
+    </HBox>
+
+</VBox>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="sn.clinique.sgcm.controller.LoginController"
+           stylesheets="@styles/style.css"
+           prefWidth="900" prefHeight="600">
+
+    <HBox>
+
+        <VBox prefWidth="450" prefHeight="600"
+              style="-fx-background-color: #0f3460;">
+            <padding><Insets top="60" left="50" right="50"/></padding>
+
+            <Label text="🏥" style="-fx-font-size: 60px;"/>
+            <Label text="Clinique Médicale"
+                   style="-fx-text-fill: white; -fx-font-size: 28px;
+                          -fx-font-weight: bold; -fx-padding: 20 0 8 0;"/>
+            <Label text="Système de Gestion Intégré"
+                   style="-fx-text-fill: #a0c4ff; -fx-font-size: 14px;"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="© 2025 SGCM — Tous droits réservés"
+                   style="-fx-text-fill: #406080; -fx-font-size: 11px;
+                          -fx-padding: 0 0 30 0;"/>
+        </VBox>
+
+
+        <VBox prefWidth="450" prefHeight="600"
+              style="-fx-background-color: #1a1a2e;"
+              alignment="CENTER">
+            <padding><Insets left="50" right="50"/></padding>
+
+            <VBox style="-fx-background-color: #16213e;
+                         -fx-background-radius: 16;
+                         -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.6),20,0,0,8);
+                         -fx-padding: 48 40 48 40;"
+                  spacing="18" maxWidth="340">
+
+                <Label text="Connexion"
+                       style="-fx-text-fill: white; -fx-font-size: 26px;
+                              -fx-font-weight: bold;"/>
+                <Label text="Bienvenue, veuillez vous identifier"
+                       style="-fx-text-fill: #a0a0b0; -fx-font-size: 13px;"/>
+
+                <Region prefHeight="8"/>
+
+
+                <VBox spacing="6">
+                    <Label text="NOM D'UTILISATEUR"
+                           style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;
+                                  -fx-font-weight: bold;"/>
+                    <TextField fx:id="usernameField"
+                               promptText="Entrez votre username"
+                               prefHeight="42"
+                               style="-fx-background-color: #0f3460;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #606080;
+                                      -fx-background-radius: 8;
+                                      -fx-border-radius: 8;
+                                      -fx-border-color: #1a4a8a;
+                                      -fx-border-width: 1;
+                                      -fx-padding: 10 14 10 14;
+                                      -fx-font-size: 13px;"/>
+                </VBox>
+
+
+                <VBox spacing="6">
+                    <Label text="MOT DE PASSE"
+                           style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;
+                                  -fx-font-weight: bold;"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Entrez votre mot de passe"
+                                   prefHeight="42"
+                                   style="-fx-background-color: #0f3460;
+                                          -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #606080;
+                                          -fx-background-radius: 8;
+                                          -fx-border-radius: 8;
+                                          -fx-border-color: #1a4a8a;
+                                          -fx-border-width: 1;
+                                          -fx-padding: 10 14 10 14;
+                                          -fx-font-size: 13px;"/>
+                </VBox>
+
+
+                <Label fx:id="errorLabel" text=""
+                       style="-fx-text-fill: #e94560; -fx-font-size: 12px;"
+                       wrapText="true"/>
+
+                <Region prefHeight="4"/>
+
+
+                <Button fx:id="loginBtn"
+                        text="SE CONNECTER"
+                        maxWidth="Infinity"
+                        prefHeight="44"
+                        onAction="#handleLogin"
+                        style="-fx-background-color: #e94560;
+                               -fx-text-fill: white;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+            </VBox>
+        </VBox>
+    </HBox>
+
+</StackPane>

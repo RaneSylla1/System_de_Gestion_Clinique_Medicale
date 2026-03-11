@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sn.clinique.sgcm.controller.RendezVousController"
+      style="-fx-background-color: #1a1a2e;"
+      spacing="20" prefWidth="860" prefHeight="620">
+
+    <padding><Insets top="24" left="24" right="24" bottom="24"/></padding>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <Label text="📅 Gestion des Rendez-vous"
+               style="-fx-text-fill: white; -fx-font-size: 20px;
+                      -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="＋  Nouveau RDV"
+                onAction="#ouvrirFormulaire"
+                style="-fx-background-color: #e94560;
+                       -fx-text-fill: white; -fx-font-weight: bold;
+                       -fx-background-radius: 8; -fx-padding: 8 16 8 16;
+                       -fx-cursor: hand; -fx-font-size: 13px;"/>
+    </HBox>
+
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+
+
+        <DatePicker fx:id="filtreDate"
+                    promptText="Filtrer par date"
+                    style="-fx-background-color: #16213e;
+                           -fx-border-color: #0f3460;
+                           -fx-border-radius: 8; -fx-border-width: 1;
+                           -fx-background-radius: 8;"/>
+
+
+        <ComboBox fx:id="filtreMedecin"
+                  promptText="Filtrer par médecin"
+                  prefWidth="200"
+                  style="-fx-background-color: #16213e;
+                         -fx-border-color: #0f3460;
+                         -fx-border-radius: 8; -fx-border-width: 1;
+                         -fx-background-radius: 8;"/>
+
+        <Button text="Filtrer" onAction="#filtrer"
+                style="-fx-background-color: #0f3460;
+                       -fx-text-fill: white; -fx-background-radius: 8;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+
+        <Button text="Aujourd'hui" onAction="#afficherAujourdhui"
+                style="-fx-background-color: #16213e;
+                       -fx-text-fill: #a0a0b0; -fx-background-radius: 8;
+                       -fx-border-color: #0f3460; -fx-border-width: 1;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+
+        <Button text="Tous" onAction="#chargerRdv"
+                style="-fx-background-color: #16213e;
+                       -fx-text-fill: #a0a0b0; -fx-background-radius: 8;
+                       -fx-border-color: #0f3460; -fx-border-width: 1;
+                       -fx-padding: 8 16 8 16; -fx-cursor: hand;"/>
+    </HBox>
+
+
+    <TableView fx:id="rdvTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: #16213e;
+                      -fx-border-color: #0f3460;
+                      -fx-border-radius: 8; -fx-background-radius: 8;">
+        <columns>
+            <TableColumn fx:id="colDate"    text="Date"      prefWidth="100"/>
+            <TableColumn fx:id="colHeure"   text="Heure"     prefWidth="80"/>
+            <TableColumn fx:id="colPatient" text="Patient"   prefWidth="160"/>
+            <TableColumn fx:id="colMedecin" text="Médecin"   prefWidth="160"/>
+            <TableColumn fx:id="colMotif"   text="Motif"     prefWidth="160"/>
+            <TableColumn fx:id="colStatut"  text="Statut"    prefWidth="110"/>
+            <TableColumn fx:id="colActions" text="Actions"   prefWidth="180"/>
+        </columns>
+        <placeholder>
+            <Label text="Aucun rendez-vous trouvé"
+                   style="-fx-text-fill: #a0a0b0;"/>
+        </placeholder>
+    </TableView>
+
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="totalLabel" text="Total : 0 rendez-vous"
+               style="-fx-text-fill: #a0a0b0; -fx-font-size: 12px;"/>
+    </HBox>
+
+</VBox>
